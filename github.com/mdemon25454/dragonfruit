@@ -1,0 +1,37 @@
+name: smssoda 24/7 Runner
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/5 * * * *"
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+
+      - name: Install Python packages
+        run: |
+          pip install --upgrade pip
+          pip install "urllib3<2"
+          pip install requests beautifulsoup4 phonenumbers APScheduler pytz
+          pip install python-telegram-bot==13.15
+
+      - name: Debug PTB installation
+        run: |
+          python - << 'EOF'
+          import telegram
+          print("PTB version loaded OK:", telegram.__version__)
+          EOF
+
+      - name: Run smssoda.py
+        run: |
+          python smssoda.py
