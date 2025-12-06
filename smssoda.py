@@ -26,8 +26,8 @@ except:
 BOT_TOKEN = "8013216408:AAEzn1aISOgTAeqAPjJpeSV90B-WoY60bC0"
 CHAT_ID   = -1003009238534
 
-USERNAME  = "sohag148"
-PASSWORD  = "sohag148"
+USERNAME  = "pcclone0"
+PASSWORD  = "pcclone0"
 
 LOGIN_URL = "http://185.2.83.39/ints/login"
 FETCH_URL = "http://185.2.83.39/ints/client/SMSCDRStats"
